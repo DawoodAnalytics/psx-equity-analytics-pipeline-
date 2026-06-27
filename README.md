@@ -1,27 +1,38 @@
-# 📈 Institutional PSX Equity Research & Analytics Pipeline (2017 - 2025)
-[![Data Pipeline](https://img.shields.io/badge/Pipeline-Python%20%E2%9E%94%20Parquet%20%E2%9E%94%20PowerBI-blue.svg)](#)
-[![Data Engine](https://img.shields.io/badge/Engine-Pandas%20%7C%20PyArrow-emerald.svg)](#)
-[![Domain](https://img.shields.io/badge/Domain-Institutional%20Equity%20Research-gold.svg)](#)
+# Pakistan Stock Exchange (PSX) Market Intelligence Engine
 
-## 1. Executive Summary & Business Case
-In high-velocity equity markets like the Pakistan Stock Exchange (PSX), portfolio managers, risk desks, and investment analysts face a massive operational hurdle: parsing through vast, uncompressed, multi-year daily transaction logs to isolate macro-level sectoral liquidity and specific equity performance metrics.
+<p align="center">
+  <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python" />
+  <img src="https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white" alt="MySQL" />
+  <img src="https://img.shields.io/badge/Power%20BI-F2C811?style=for-the-badge&logo=powerbi&logoColor=black" alt="Power BI" />
+  <img src="https://img.shields.io/badge/Linux%20/%20Ubuntu-E95420?style=for-the-badge&logo=ubuntu&logoColor=white" alt="Ubuntu" />
+  <img src="https://img.shields.io/badge/VS%20Code-007ACC?style=for-the-badge&logo=visual-studio-code&logoColor=white" alt="VS Code" />
+  <img src="https://img.shields.io/badge/Pandas-150458?style=for-the-badge&logo=pandas&logoColor=white" alt="Pandas" />
+</p>
 
-**The Solution:** This project establishes a production-grade analytics lifecycle. It transforms 9 years of historical market raw data (`compiled_psx_historical_2017_2025.csv`) into a decoupled star-schema architecture. By migrating heavy computations upstream to a custom Python ETL pipeline, the dataset's local memory footprint was reduced by over **80%**, empowering standard local machines to execute sub-second data refreshes and run lightning-fast visual cross-filtering inside an elite, Bloomberg-terminal-inspired Power BI dashboard.
+## 📌 Project Overview
+In fast-moving equity markets like the Pakistan Stock Exchange (PSX), portfolio managers, risk officers, and retail desks require rapid, data-driven insights to capture alpha and mitigate risk. Raw trading data is often fragmented, dense, and difficult to parse for macro trends or individual ticker anomalies.
 
----
-
-## 2. Interface Preview (Production Analytics)
-
-To maximize data visibility and replicate an institutional environment, the user interface features a high-density, low-glare dark design language optimized for real-time risk assessment and asset monitoring.
-
-<kbd>
-  <img src="docs/dashboard_preview.png" alt="Executive Market Analytics Interface" width="100%">
-</kbd>
-
-*Figure 1.0: Consolidated Micro-Screener and Sector Asset Allocator View inside Power BI.*
+**The Solution:** This project delivers a production-grade, end-to-end BI pipeline that ingests **9 years of historical PSX data** (spanning 2017 to 2025). The system cleanses trading noise, structures the data into an optimized analytical relational schema, and delivers interactive dashboards highlighting liquidity trends, market volatility, and top-performing sectors or equities.
 
 ---
 
-## 3. Technical Workflow Architecture
+## 🛠️ Tech Stack & Architecture
+* **Developer:** Dawood Raza
+* **Role:** Business Intelligence Analyst / Data Engineer
+* **Target Architecture:** Python (ETL) ➔ SQL Relational DB ➔ Power BI Semantic Model
 
-The pipeline splits computational load from the presentation layer to protect analytical performance:
+### Data Pipeline Flow
+```text
+[Raw CSV: compiled_psx_historical_2017_2025.csv]
+                        │
+                        ▼
+          [Python ETL & Cleaning Script]
+                        │
+                        ▼
+       [Structured Database / SQL Warehouse] 
+                        │
+                        ▼
+       [Power BI / Semantic Modeling (DAX)] 
+                        │
+                        ▼
+   [Executive Dashboard & Actionable Insights]
